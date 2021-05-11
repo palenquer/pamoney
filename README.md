@@ -1,22 +1,44 @@
-# cra-template-tailwindcss-typescript
+<p align="center">
+  <h1 align="center">pamoney</h1>
+  <p align="center">
+    <br />
+    <a href="https://pt-br.reactjs.org">DEMO</a>
+  </p>
+  <p align="center">Uma forma de organizar suas financias pessoais!</p>
+</p>
 
-A streamlined [Tailwind CSS](https://tailwindcss.com) template for [Create React App](https://github.com/facebook/create-react-app) in [TypeScript](https://www.typescriptlang.org/).
+<h2>Sobre o projeto</h2>
 
-> This template installs and sets up [Tailwind CSS](https://tailwindcss.com) with TypeScript support.
+Esse projeto foi feito com base no projeto de Capítulo 2 do Curso Ignite da Rocketseat. O intúito desse projeto é aperfeiçoar minhas habilidades com React e Typescript.
 
-## Usage
+<h2>Dependências utilizadas</h2>
 
-```bash
-npx create-react-app --template tailwindcss-typescript
-```
+* [ReactJS](https://pt-br.reactjs.org)
+* [Typescript](https://www.typescriptlang.org)
+* [TailwindCSS](https://tailwindcss.com)
 
-## Credits
+## Inicializando o Projeto
 
-This project was made possible thanks to the following projects.
+### Instalação
 
-1. [GeoffSelby/cra-template-tailwindcss](https://github.com/GeoffSelby/cra-template-tailwindcss) - A streamlined Tailwind CSS template for Create React App (in JavaScript).
-2. [cra-template-typescript](https://github.com/facebook/create-react-app/tree/master/packages/cra-template-typescript) - An official TypeScript template for create-react-app.
+1. Clone o repositório
+   ```sh
+   git clone https://github.com/palenquer/pamoney
+   ```
+2. Instale o pacote node
+   ```sh
+   npm install // yarn install
+   ```
+3. Rode o projeto no seu terminal
+    ```sh
+   npm start // yarn start
+   ```
 
-## License
+### Pré-requisitos
 
-MIT © [Sung M. Kim](https://sung.codes)
+Para funcionar o projeto, é preciso a instalação do node na sua máquina.
+
+* npm
+  ```sh
+  npm install npm@latest -g
+  ```
