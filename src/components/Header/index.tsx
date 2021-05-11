@@ -3,7 +3,7 @@ import logoImg from "../../assets/logo.svg";
 export function Header() {
   return (
     <header className="bg-purple-600 w-full text-white">
-      <div className="mx-auto container flex px-2 pb-44 pt-4 items-center justify-between">
+      <div className="m-auto container max-w-screen-lg flex px-2 pb-44 pt-4 items-center justify-between">
         <div className="flex gap-2 items-center">
           <img src={logoImg} alt="pa money" />
           <span className="font-semibold text-lg mb-1">pa money</span>
