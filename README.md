@@ -9,7 +9,7 @@
 
 <h2>Sobre o projeto</h2>
 
-Esse projeto foi feito com base no projeto de Capítulo 2 do Ignite da Rocketseat. O intúito desse projeto é aperfeiçoar minhas habilidades com React e Typescript.
+Esse projeto foi feito com base no projeto de Capítulo 2 do Curso Ignite da Rocketseat. O intúito desse projeto é aperfeiçoar minhas habilidades com React e Typescript.
 
 <h2>Dependências utilizadas</h2>
 
