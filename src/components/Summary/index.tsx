@@ -15,7 +15,7 @@ export function Summary() {
 
       <div className="bg-white py-6 px-8 rounded text-gray-700 w-1/3 md:w-80 shadow-md">
         <header className="flex items-center justify-between">
-          <p>Entradas</p>
+          <p>Saídas</p>
           <img src={outcomeImg} alt="Saídas" />
         </header>
         <strong className="text-2xl leading-loose block mt-2">- R$500,00</strong> 
