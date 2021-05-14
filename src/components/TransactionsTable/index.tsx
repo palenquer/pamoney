@@ -1,6 +1,14 @@
+import { useEffect } from "react";
+import { api } from "../../services/api";
+
 export function TransactionsTable() {
+    useEffect(() => {
+        api.get('/transactions')
+        .then(response => console.log(response.data))
+    }, []);
+
     return (
-        <div className="mt-16 m-auto max-w-screen-lg">
+        <div className="mt-16 m-auto max-w-screen-lg overflow-auto">
             <table className="w-full border-separate">
                 <thead className="text-gray-500"> 
                     <tr>

@@ -5,7 +5,9 @@
   "dependencies": {
     "@craco/craco": "^6.1.2",
     "autoprefixer": "^9",
+    "axios": "^0.21.1",
     "cross-env": "7.x",
+    "miragejs": "^0.1.41",
     "npm-run-all": "4.x",
     "postcss": "^7",
     "postcss-cli": "8.x",

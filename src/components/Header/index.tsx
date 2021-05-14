@@ -9,7 +9,7 @@ export function Header() {
           <span className="font-semibold text-lg mb-1">pa money</span>
         </div>
 
-        <button className="text-md bg-purple-500 px-8 rounded h-10 transition duration-300 filter hover:brightness-90" type="button">
+        <button className="text-sm md:text-md bg-purple-500 px-8 rounded h-10 transition duration-300 filter hover:brightness-90" type="button">
           Nova Transação
         </button>
       </div>
