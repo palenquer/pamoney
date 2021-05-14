@@ -1,6 +1,8 @@
 <p align="center">
   <h1 align="center">pamoney</h1>
+  
   ![Page Screenshot](./images/page.png)
+  
   <p align="center">
     <br />
     <a href="https://pamoney.vercel.app">DEMO</a>
