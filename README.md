@@ -1,5 +1,6 @@
 <p align="center">
   <h1 align="center">pamoney</h1>
+  ![Page Screenshot](./images/page.png)
   <p align="center">
     <br />
     <a href="https://pamoney.vercel.app">DEMO</a>
@@ -8,6 +9,7 @@
 </p>
 
 <h2>Sobre o projeto</h2>
+
 
 Esse projeto foi feito com base no projeto de Capítulo 2 do Curso Ignite da Rocketseat. O intúito desse projeto é aperfeiçoar minhas habilidades com React e Typescript.
 
