@@ -2,7 +2,7 @@
   <h1 align="center">pamoney</h1>
   <p align="center">
     <br />
-    <a href="https://pt-br.reactjs.org">DEMO</a>
+    <a href="https://pamoney.vercel.app">DEMO</a>
   </p>
   <p align="center">Uma forma de organizar suas financias pessoais!</p>
 </p>
