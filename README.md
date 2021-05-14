@@ -20,6 +20,8 @@ Esse projeto foi feito com base no projeto de Capítulo 2 do Curso Ignite da Roc
 * [ReactJS](https://pt-br.reactjs.org)
 * [Typescript](https://www.typescriptlang.org)
 * [TailwindCSS](https://tailwindcss.com)
+* [MirageJS](https://miragejs.com)
+* [Axios](https://www.npmjs.com/package/axios)
 
 ## Inicializando o Projeto
 
