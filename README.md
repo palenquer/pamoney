@@ -39,10 +39,11 @@ Esse projeto foi feito com base no projeto de Capítulo 2 do Curso Ignite da Roc
     ```sh
    npm start // yarn start
    ```
+4. Abra o localhost indicado no seu navegador
 
 ### Pré-requisitos
 
-Para funcionar o projeto, é preciso a instalação do node na sua máquina.
+Para rodar o projeto, é preciso a instalação do node na sua máquina.
 
 * npm
   ```sh
