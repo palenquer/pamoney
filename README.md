@@ -1,5 +1,8 @@
 <p align="center">
   <h1 align="center">pamoney</h1>
+  
+  ![Page Screenshot](./images/page.png)
+  
   <p align="center">
     <br />
     <a href="https://pamoney.vercel.app">DEMO</a>
@@ -9,6 +12,7 @@
 
 <h2>Sobre o projeto</h2>
 
+
 Esse projeto foi feito com base no projeto de Capítulo 2 do Curso Ignite da Rocketseat. O intúito desse projeto é aperfeiçoar minhas habilidades com React e Typescript.
 
 <h2>Dependências utilizadas</h2>
@@ -16,6 +20,8 @@ Esse projeto foi feito com base no projeto de Capítulo 2 do Curso Ignite da Roc
 * [ReactJS](https://pt-br.reactjs.org)
 * [Typescript](https://www.typescriptlang.org)
 * [TailwindCSS](https://tailwindcss.com)
+* [MirageJS](https://miragejs.com)
+* [Axios](https://www.npmjs.com/package/axios)
 
 ## Inicializando o Projeto
 
@@ -33,10 +39,11 @@ Esse projeto foi feito com base no projeto de Capítulo 2 do Curso Ignite da Roc
     ```sh
    npm start // yarn start
    ```
+4. Abra o localhost indicado no seu navegador
 
 ### Pré-requisitos
 
-Para funcionar o projeto, é preciso a instalação do node na sua máquina.
+Para rodar o projeto, é preciso a instalação do node na sua máquina.
 
 * npm
   ```sh
