@@ -5,7 +5,14 @@ module.exports = {
     fontFamily: {
       poppins: ["Poppins"],
     },
-    extend: {},
+    extend: {
+      width: {
+        '20px': '20px',
+      },
+      height: {
+        '20px': '20px',
+      }
+    },
   },
   variants: {
     extend: {

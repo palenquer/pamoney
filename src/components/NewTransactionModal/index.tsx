@@ -1,5 +1,9 @@
 import Modal from "react-modal";
 import closeImg from "../../assets/close.svg";
+import outcomeImg from "../../assets/outcome.svg";
+import incomeImg from "../../assets/income.svg";
+import { RadioBox } from "../RadioBox";
+import { useState } from "react";
 
 interface NewTransactionModalProps {
   isOpen: boolean;
@@ -9,6 +13,8 @@ export function NewTransactionModal({
   isOpen,
   onRequestClose,
 }: NewTransactionModalProps) {
+  const [type, setType] = useState("deposit");
+
   return (
     <Modal
       isOpen={isOpen}
@@ -32,6 +38,34 @@ export function NewTransactionModal({
           type="text"
           placeholder="Título"
         />
+
+        <div className="mt-4 grid grid-cols-2 gap-2">
+          <RadioBox
+            isActive={type === "deposit"}
+            isActiveStyle="bg-green-100"
+            onClick={() => {
+              setType("deposit");
+            }}
+          >
+            <img className="w-20px h-20px" src={incomeImg} alt="Entrada" />
+            <span className="inline-block ml-4 text-base text-gray-700">
+              Entrada
+            </span>
+          </RadioBox>
+
+          <RadioBox
+            onClick={() => {
+              setType("withdraw");
+            }}
+            isActive={type === "withdraw"}
+            isActiveStyle="bg-red-100"
+          >
+            <img className="w-20px h-20px" src={outcomeImg} alt="Saída" />
+            <span className="inline-block ml-4 text-base text-gray-700">
+              Saída
+            </span>
+          </RadioBox>
+        </div>
 
         <input
           className="w-full px-6 h-16 rounded bg-gray-100 border border-gray-300 placeholder-gray-500 mt-4"
