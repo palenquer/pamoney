@@ -1,8 +1,12 @@
+import { useContext } from 'react';
 import incomeImg from '../../assets/income.svg';
 import outcomeImg from '../../assets/outcome.svg';
 import totalImg from '../../assets/total.svg';
+import { TransactionsContext } from '../TransactionsContext';
 
 export function Summary() {
+  const transactions = useContext(TransactionsContext);
+
   return (
     <div className="flex -mt-24 gap-8 m-auto max-w-screen-lg flex-col md:flex-row items-center">
       <div className="bg-white py-6 px-8 rounded text-gray-700 md:w-80 shadow-md w-full max-w-xs">

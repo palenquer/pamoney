@@ -1,23 +1,8 @@
-import { useEffect, useState } from "react";
-import { api } from "../../services/api";
-
-interface Transaction {
-  id: number;
-  title: string;
-  amount: number;
-  type: string;
-  category: string;
-  createdAt: string;
-}
+import { useContext } from "react";
+import { TransactionsContext } from "../TransactionsContext";
 
 export function TransactionsTable() {
-  const [transactions, setTransactions] = useState<Transaction[]>([]);
-
-  useEffect(() => {
-    api
-      .get("/transactions")
-      .then((response) => setTransactions(response.data.transactions));
-  }, []);
+  const { transactions } = useContext(TransactionsContext);
 
   return (
     <div className="mt-16 m-auto max-w-screen-lg overflow-auto">
@@ -45,13 +30,18 @@ export function TransactionsTable() {
                       : "text-red-500"
                   } py-4 px-8 border-0 bg-white rounded`}
                 >
-                  {new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL'}).format(transaction.amount)}
+                  {new Intl.NumberFormat("pt-BR", {
+                    style: "currency",
+                    currency: "BRL",
+                  }).format(transaction.amount)}
                 </td>
                 <td className="py-4 px-8 border-0 bg-white text-gray-500 rounded">
                   {transaction.category}
                 </td>
                 <td className="py-4 px-8 border-0 bg-white text-gray-500 rounded">
-                {new Intl.DateTimeFormat('pt-BR').format(new Date(transaction.createdAt))}
+                  {new Intl.DateTimeFormat("pt-BR").format(
+                    new Date(transaction.createdAt)
+                  )}
                 </td>
               </tr>
             );
