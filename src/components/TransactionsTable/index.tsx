@@ -1,8 +1,7 @@
-import { useContext } from "react";
-import { TransactionsContext } from "../TransactionsContext";
+import { useTransactions } from "../../hooks/useTransactions";
 
 export function TransactionsTable() {
-  const { transactions } = useContext(TransactionsContext);
+  const { transactions } = useTransactions();
 
   return (
     <div className="mt-16 m-auto max-w-screen-lg overflow-auto">

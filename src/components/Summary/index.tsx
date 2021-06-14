@@ -1,11 +1,29 @@
-import { useContext } from 'react';
-import incomeImg from '../../assets/income.svg';
-import outcomeImg from '../../assets/outcome.svg';
-import totalImg from '../../assets/total.svg';
-import { TransactionsContext } from '../TransactionsContext';
+import incomeImg from "../../assets/income.svg";
+import outcomeImg from "../../assets/outcome.svg";
+import totalImg from "../../assets/total.svg";
+import { useTransactions } from "../../hooks/useTransactions";
 
 export function Summary() {
-  const transactions = useContext(TransactionsContext);
+  const { transactions } = useTransactions();
+
+  const summary = transactions.reduce(
+    (acc, transaction) => {
+      if (transaction.type === "deposit") {
+        acc.deposits += transaction.amount;
+        acc.total += transaction.amount;
+      } else {
+        acc.withdraws += transaction.amount;
+        acc.total -= transaction.amount;
+      }
+
+      return acc;
+    },
+    {
+      deposits: 0,
+      withdraws: 0,
+      total: 0,
+    }
+  );
 
   return (
     <div className="flex -mt-24 gap-8 m-auto max-w-screen-lg flex-col md:flex-row items-center">
@@ -14,7 +32,12 @@ export function Summary() {
           <p>Entradas</p>
           <img src={incomeImg} alt="Entradas" />
         </header>
-        <strong className="text-2xl leading-loose block mt-2">R$1000,00</strong>
+        <strong className="text-2xl leading-loose block mt-2">
+          {new Intl.NumberFormat("pt-BR", {
+            style: "currency",
+            currency: "BRL",
+          }).format(summary.deposits)}
+        </strong>
       </div>
 
       <div className="bg-white py-6 px-8 rounded text-gray-700 md:w-80 shadow-md w-full max-w-xs">
@@ -22,15 +45,26 @@ export function Summary() {
           <p>Saídas</p>
           <img src={outcomeImg} alt="Saídas" />
         </header>
-        <strong className="text-2xl leading-loose block mt-2">- R$500,00</strong> 
+        <strong className="text-2xl leading-loose block mt-2">
+        -
+        {new Intl.NumberFormat("pt-BR", {
+            style: "currency",
+            currency: "BRL",
+          }).format(summary.withdraws)}
+        </strong>
       </div>
 
       <div className="bg-green-400 py-6 px-8 rounded text-white md:w-80 shadow-md w-full max-w-xs">
         <header className="flex items-center justify-between">
           <p>Total</p>
-          <img src={totalImg} alt="Total" />    
+          <img src={totalImg} alt="Total" />
         </header>
-        <strong className="text-2xl leading-loose block mt-2">R$500,00</strong>
+        <strong className="text-2xl leading-loose block mt-2">
+        {new Intl.NumberFormat("pt-BR", {
+            style: "currency",
+            currency: "BRL",
+          }).format(summary.total)}
+        </strong>
       </div>
     </div>
   );
