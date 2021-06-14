@@ -3,7 +3,8 @@ import closeImg from "../../assets/close.svg";
 import outcomeImg from "../../assets/outcome.svg";
 import incomeImg from "../../assets/income.svg";
 import { RadioBox } from "../RadioBox";
-import { useState } from "react";
+import { FormEvent, useState } from "react";
+import { api } from "../../services/api";
 
 interface NewTransactionModalProps {
   isOpen: boolean;
@@ -13,7 +14,20 @@ export function NewTransactionModal({
   isOpen,
   onRequestClose,
 }: NewTransactionModalProps) {
+  const [title, setTitle] = useState('');
+  const [value, setValue] = useState(0);
+  const [category, setCategory] = useState('');
   const [type, setType] = useState("deposit");
+
+  function handleCreateNewTransaction(event: FormEvent) {
+    event.preventDefault();
+
+    const data = {
+      title, value, category, type
+    };
+
+    api.post('/transactions', data)
+  }
 
   return (
     <Modal
@@ -30,13 +44,15 @@ export function NewTransactionModal({
         <img src={closeImg} alt="Fechar modal" />
       </button>
 
-      <form>
+      <form onSubmit={handleCreateNewTransaction}>
         <h2 className="text-gray-800 text-2xl mb-8">Cadastrar transação</h2>
 
         <input
           className="w-full px-6 h-16 rounded bg-gray-100 border border-gray-300 placeholder-gray-500"
           type="text"
           placeholder="Título"
+          value={title}
+          onChange={event => setTitle(event.target.value)}
         />
 
         <div className="mt-4 grid grid-cols-2 gap-2">
@@ -71,12 +87,16 @@ export function NewTransactionModal({
           className="w-full px-6 h-16 rounded bg-gray-100 border border-gray-300 placeholder-gray-500 mt-4"
           type="number"
           placeholder="Valor"
+          value={value}
+          onChange={event => setValue(Number(event.target.value))}
         />
 
         <input
           className="w-full px-6 h-16 rounded bg-gray-100 border border-gray-300 placeholder-gray-500 mt-4"
           type="text"
           placeholder="Categoria"
+          value={category}
+          onChange={event => setCategory(event.target.value)}
         />
 
         <button

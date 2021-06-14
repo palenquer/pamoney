@@ -1,39 +1,63 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { api } from "../../services/api";
 
+interface Transaction {
+  id: number;
+  title: string;
+  amount: number;
+  type: string;
+  category: string;
+  createdAt: string;
+}
+
 export function TransactionsTable() {
-    useEffect(() => {
-        api.get('/transactions')
-        .then(response => console.log(response.data))
-    }, []);
+  const [transactions, setTransactions] = useState<Transaction[]>([]);
 
-    return (
-        <div className="mt-16 m-auto max-w-screen-lg overflow-auto">
-            <table className="w-full border-separate">
-                <thead className="text-gray-500"> 
-                    <tr>
-                        <th className="py-4 px-8 text-left">Título</th>
-                        <th className="py-4 px-8 text-left">Valor</th>
-                        <th className="py-4 px-8 text-left">Categoria</th>
-                        <th className="py-4 px-8 text-left">Data</th>
-                    </tr>
-                </thead>
+  useEffect(() => {
+    api
+      .get("/transactions")
+      .then((response) => setTransactions(response.data.transactions));
+  }, []);
 
-                <tbody>
-                    <tr>
-                        <td className="py-4 px-8 border-0 bg-white rounded">Desenvolvimento de Website</td>
-                        <td className="py-4 px-8 border-0 bg-white text-green-500 rounded">R$12.000</td>
-                        <td className="py-4 px-8 border-0 bg-white text-gray-500 rounded">Desenvolvimento</td>
-                        <td className="py-4 px-8 border-0 bg-white text-gray-500 rounded">20/02/2021</td>
-                    </tr>
-                    <tr>
-                        <td className="py-4 px-8 border-0 bg-white rounded">Aluguel</td>
-                        <td className="py-4 px-8 border-0 bg-white rounded text-red-500">- R$1.100</td>
-                        <td className="py-4 px-8 border-0 bg-white text-gray-500 rounded">Casa</td>
-                        <td className="py-4 px-8 border-0 bg-white text-gray-500 rounded">17/02/2021</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    )
+  return (
+    <div className="mt-16 m-auto max-w-screen-lg overflow-auto">
+      <table className="w-full border-separate">
+        <thead className="text-gray-500">
+          <tr>
+            <th className="py-4 px-8 text-left">Título</th>
+            <th className="py-4 px-8 text-left">Valor</th>
+            <th className="py-4 px-8 text-left">Categoria</th>
+            <th className="py-4 px-8 text-left">Data</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          {transactions.map((transaction) => {
+            return (
+              <tr key={transaction.id}>
+                <td className="py-4 px-8 border-0 bg-white rounded">
+                  {transaction.title}
+                </td>
+                <td
+                  className={`${
+                    transaction.type === "deposit"
+                      ? "text-green-500"
+                      : "text-red-500"
+                  } py-4 px-8 border-0 bg-white rounded`}
+                >
+                  {new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL'}).format(transaction.amount)}
+                </td>
+                <td className="py-4 px-8 border-0 bg-white text-gray-500 rounded">
+                  {transaction.category}
+                </td>
+                <td className="py-4 px-8 border-0 bg-white text-gray-500 rounded">
+                {new Intl.DateTimeFormat('pt-BR').format(new Date(transaction.createdAt))}
+                </td>
+              </tr>
+            );
+          })}
+        </tbody>
+      </table>
+    </div>
+  );
 }
