@@ -45,7 +45,4 @@ Esse projeto foi feito com base no projeto de Capítulo 2 do Curso Ignite da Roc
 
 Para rodar o projeto, é preciso a instalação do node na sua máquina.
 
-* npm
-  ```sh
-  npm install npm@latest -g
-  ```
+* https://nodejs.org/en/
